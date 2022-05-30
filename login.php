@@ -1,10 +1,12 @@
 <?php
 
+require './classes/User.php';
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if ($_POST['username'] == 'ksharma' && $_POST['password'] == 'secret') {
+    if (User::authenticate()) {
 
         session_regenerate_id(true);
 
