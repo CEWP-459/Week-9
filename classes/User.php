@@ -1,9 +1,27 @@
-<?php 
+<?php
 
-class User {
+class User
+{
 
-    public static function authenticate ($username, $password) {
-       return $_POST['username'] == 'ksharma' && $_POST['password'] == 'secret';
+    public $id;
+    public $username;
+    public $password;
+
+    public static function authenticate ($conn, $username, $password) {
+        $sql = "SELECT *
+                FROM user
+                WHERE username = :username";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+        $stmt->execute();
+
+        if ($user = $stmt->fetch()) {
+            return $user->password == $password;
+        }
     }
-
+    
 }
