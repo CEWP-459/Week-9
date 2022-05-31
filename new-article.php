@@ -2,12 +2,12 @@
 
 ini_set('display_errors', 1); 
 require 'classes/Database.php'; 
-require 'classes/Article.php'; 
-require 'includes/auth.php'; 
+require 'classes/Article.php';
+require 'classes/Auth.php'; 
 
 session_start();
 
-if (!isLoggedIn()) {
+if (!Auth::isLoggedIn()) {
     die("Unauthorised!");
 }
 

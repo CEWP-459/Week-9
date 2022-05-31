@@ -6,8 +6,7 @@
 
     require 'classes/Database.php'; 
     require 'classes/Article.php'; 
-
-    require 'includes/auth.php'; 
+    require 'classes/Auth.php'; 
 
     $db = new Database();
     $connection = $db -> getConn();
@@ -20,7 +19,7 @@
 <body>
     <h1>Blog</h1>
 
-    <?php if(isLoggedIn()): ?>
+    <?php if(Auth::isLoggedIn()): ?>
         You are Logged In! <a href="./logout.php">Logout<br></a>
         <p><a href="./new-article.php">New Article</a></p>
     <?php else: ?>
