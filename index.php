@@ -3,9 +3,7 @@
     ini_set('display_errors', 1); 
 
     require './includes/init.php';
-
-    $db = new Database();
-    $connection = $db -> getConn();
+    $connection = require './includes/db.php';
 
     $articles = Article::getAll($connection);
 

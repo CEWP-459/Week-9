@@ -4,8 +4,7 @@ require './includes/init.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $db = new Database();
-    $connection = $db -> getConn();
+    $connection = require './includes/db.php';
 
     if (User::authenticate($connection, $_POST['username'], $_POST['password'])) {
 
