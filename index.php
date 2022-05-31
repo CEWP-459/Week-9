@@ -1,12 +1,8 @@
 <?php
 
-    session_start();
-
     ini_set('display_errors', 1); 
 
-    require 'classes/Database.php'; 
-    require 'classes/Article.php'; 
-    require 'classes/Auth.php'; 
+    require './includes/init.php';
 
     $db = new Database();
     $connection = $db -> getConn();

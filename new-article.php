@@ -1,11 +1,8 @@
 <?php
 
 ini_set('display_errors', 1); 
-require 'classes/Database.php'; 
-require 'classes/Article.php';
-require 'classes/Auth.php'; 
 
-session_start();
+require './includes/init.php';
 
 if (!Auth::isLoggedIn()) {
     die("Unauthorised!");

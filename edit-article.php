@@ -2,9 +2,8 @@
 
     ini_set('display_errors', 1); 
 
-    require 'classes/Database.php'; 
-    require 'classes/Article.php'; 
-    
+    require './includes/init.php';
+
     $db = new Database();
     $connection = $db -> getConn();
 
